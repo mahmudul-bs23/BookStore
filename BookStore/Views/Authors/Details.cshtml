@@ -1,0 +1,46 @@
+﻿@model BookStore.Models.Author
+
+@{
+    ViewData["Title"] = "Author Details";
+}
+
+<h3>Author Details</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AuthorImage)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.AuthorImageUrl" alt="Book Cover Image" height="150">
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Books)
+        </dt>
+        <dd class="col-sm-10">
+            <ul>
+                @foreach (var book in ViewBag.books)
+                {
+                    <li><a asp-controller="Books" asp-action="Details" asp-route-id="@book.BookId">@book.Title</a></li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.AuthorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
