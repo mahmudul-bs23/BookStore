@@ -177,6 +177,11 @@ namespace BookStore.Controllers
             var author = await _context.Authors.FindAsync(id);
             if (author != null)
             {
+                // Remove all books associated with the author
+                var booksToRemove = _context.Books.Where(b => b.Author.AuthorId == id);
+                _context.Books.RemoveRange(booksToRemove);
+
+                // Remove the author
                 _context.Authors.Remove(author);
             }
             
