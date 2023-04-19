@@ -12,4 +12,4 @@ This project is a simple website for books where users can view book details, up
 - see an author's details
 - update author properties
 - remove an author and also all books of the author will be deleted
-- get a confirmation pop-up before removing an author or a book
+- get a confirmation page before removing an author or a book
